@@ -5,7 +5,7 @@
 //for each UFO sighting.
 
 // from data.js
-var tableData = d3.select ("#data");
+var tableData = data;
 
 // Get a reference to the table body
 var tbody = d3.select("tbody");
@@ -24,7 +24,7 @@ var resetbutton= d3.select("resetbutton");
 button.on("click", UFOdata);
 resetbutton.on("submit", UFOdata");
 
-//Create filter
+//Create filter by using a function
 function UFOdata() {
     d3.event.preventDefault();
     const datetimefilter = d3.select("#datetime").property("value");
@@ -36,9 +36,10 @@ function UFOdata() {
 function renderTable(table);
     var tbody = d3.select("tbody");
     tbody.html("");
-    table.forEach((sightings) => (
+    table.forEach((sightings) => {
         var row = tbody.append("tr");
-      //console.log(sightings);
+//console.log(sightings);
+// iterate over: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
       for (let key in sightings) {
         var cell = row.append("td");
         cell.text(sightings[key]);
