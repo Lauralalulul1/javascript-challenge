@@ -22,7 +22,7 @@ var button = d3.select("#filter-btn");
 var resetbutton= d3.select("resetbutton");
 
 button.on("click", UFOdata);
-resetbutton.on("submit", UFOdata");
+resetbutton.on("submit", UFOdata);
 
 //Create filter by using a function
 function UFOdata() {
